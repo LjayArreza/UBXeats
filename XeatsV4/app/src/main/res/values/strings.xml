@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">XeatsV4</string>
+    <string name="title_home">XeatsV4</string>
+    <string name="title_dashboard">XeatsV4</string>
+    <string name="title_notifications">XeatsV4</string>
+    <string name="textview">TextView</string>
+    <string name="welcome">WELCOME</string>
+
+    <string-array name="State">
+        <item>MetroManila</item>
+        <item>Cavite</item>
+    </string-array>
+
+    <string-array name="City">
+        <item>Quezon City</item>
+        <item>Mandaluyong City</item>
+        <item>Pasig City</item>
+        <item>Makati City</item>
+        <item>Bacoor</item>
+        <item>Dasma</item>
+        <item>Imus</item>
+    </string-array>
+
+    <string-array name="shipper">
+        <item>Shipper 1</item>
+        <item>Shipper 2</item>
+    </string-array>
+
+    <string-array name="DishName">
+        <item>Ginataang Niyog</item>
+        <item>Garlic Rice</item>
+        <item>Humba</item>
+        <item>Garlic Rice</item>
+        <item>Nilagang baka</item>
+        <item>Hotsilog</item>
+        <item>Tapsilog</item>
+        <item>Tosilog</item>
+        <item>Hamsilog</item>
+        <item>Humbasilog</item>
+        <item>Nilagang Itlog</item>
+        <item>Pretong Itlog</item>
+        <item>Pancit Loglog</item>
+        <item>Pancit Canton</item>
+        <item>Litchon Kawali</item>
+        <item>Litchon de leche</item>
+        <item>Dinuguan</item>
+        <item>Bicol Express</item>
+        <item>Inihaw na Pusit</item>
+        <item>Nilagang Pusit</item>
+        <item>Ginataang Pusit</item>
+        <item>Ginataang Tilapya</item>
+        <item>Adobong Kambing</item>
+        <item>Adobong Baboy</item>
+        <item>Adobong Kangkong</item>
+        <item>Pandesal</item>
+        <item>Garlic Pandesal</item>
+        <item>Sinigang na Pusit</item>
+        <item>Inihaw na Monggo</item>
+        <item>Ginataang Kalabasa</item>
+        <item>Adobong Manok</item>
+        <item>Tinulang Manok</item>
+        <item>Inihaw na Manok</item>
+        <item>Inihaw na Bangus</item>
+        <item>Tapa Kalabaw</item>
+        <item>Tapa Kabayo</item>
+        <item>Inihaw Dinosaur</item>
+        <item>Ginataang Cobra</item>
+        <item>Itik na Kinawin</item>
+
+    </string-array>
+
+
+</resources>

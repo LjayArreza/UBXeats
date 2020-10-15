@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1057485004157",
+    "firebase_url": "https://ubxeats.firebaseio.com",
+    "project_id": "ubxeats",
+    "storage_bucket": "ubxeats.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057485004157:android:e881e6be12af1a40c88014",
+        "android_client_info": {
+          "package_name": "ph.ubx.ubxeats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057485004157-d9hs8va6k2do38o9abeqrl5e0svvh2q8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ph.ubx.ubxeats",
+            "certificate_hash": "847aff7b38c900aa1f5a8eb8333709adcf502e4b"
+          }
+        },
+        {
+          "client_id": "1057485004157-u51aftsu2g9bffm0jsj239t41hsq607u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDb5tk8RNx-r5ta4R4B7Zt-B_dsssQ8tw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057485004157-u51aftsu2g9bffm0jsj239t41hsq607u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
