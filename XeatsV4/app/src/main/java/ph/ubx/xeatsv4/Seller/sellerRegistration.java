@@ -1,4 +1,4 @@
-package ph.ubx.xeatsv4;
+package ph.ubx.xeatsv4.Seller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +27,9 @@ import com.hbb20.CountryCodePicker;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import ph.ubx.xeatsv4.R;
+import ph.ubx.xeatsv4.Utils.ReusableCodes;
+
 public class sellerRegistration extends AppCompatActivity {
 
     String[] MetroManila = {"Quezon City", "Mandaluyong City", "Pasig City", "Makati City", "Pasay City"};
@@ -39,7 +42,7 @@ public class sellerRegistration extends AppCompatActivity {
     FirebaseAuth FAuth;
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
-    String fname,lname,emailid,password,confpassword,mobile,house,Subd,Pincode,role="Seller",statee,cityy;
+    String fname,lname,emailid,password,confpassword,mobile,house,Subd,Pincode,role= "Sellers",statee,cityy;
 
 
     @Override
@@ -113,7 +116,7 @@ public class sellerRegistration extends AppCompatActivity {
             }
         });
 
-        databaseReference = firebaseDatabase.getInstance().getReference("Seller");
+        databaseReference = firebaseDatabase.getInstance().getReference("Sellers");
         FAuth = FirebaseAuth.getInstance();
 
         signup.setOnClickListener(new View.OnClickListener() {
@@ -164,7 +167,7 @@ public class sellerRegistration extends AppCompatActivity {
                                         hashMap1.put("Subd", Subd);
                                         hashMap1.put("PinCode", Pincode);
 
-                                        firebaseDatabase.getInstance().getReference("Seller")
+                                        firebaseDatabase.getInstance().getReference("Sellers")
                                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                                 .setValue(hashMap1).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
@@ -205,11 +208,30 @@ public class sellerRegistration extends AppCompatActivity {
                                         });
                                     }
                                 });
+                            } else {
+                                mDialog.dismiss();
+                                ReusableCodes.ShowAlert(sellerRegistration.this,"Error",task.getException().getMessage());
                             }
 
                         }
                     });
                 }
+            }
+        });
+
+        Emaill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(sellerRegistration.this, sellerLoginEmail.class));
+                finish();
+            }
+        });
+
+        Phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(sellerRegistration.this,sellerLoginPhone.class));
+                finish();
             }
         });
     }

@@ -1,8 +1,10 @@
-package ph.ubx.xeatsv4;
+package ph.ubx.xeatsv4.Delivery;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import ph.ubx.xeatsv4.R;
 
 public class deliveryLoginEmail extends AppCompatActivity {
 

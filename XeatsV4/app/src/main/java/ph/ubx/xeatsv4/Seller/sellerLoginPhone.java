@@ -1,4 +1,4 @@
-package ph.ubx.xeatsv4;
+package ph.ubx.xeatsv4.Seller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.hbb20.CountryCodePicker;
+
+import ph.ubx.xeatsv4.R;
 
 public class sellerLoginPhone extends AppCompatActivity {
 
@@ -40,10 +42,10 @@ public class sellerLoginPhone extends AppCompatActivity {
             public void onClick(View view) {
 
                 number = num.getText().toString().trim();
-                String Phonenum = cpp.getSelectedCountryCodeWithPlus()+number;
+                String Phonenumber = cpp.getSelectedCountryCodeWithPlus()+number;
                 Intent b = new Intent(sellerLoginPhone.this,sellerSendOtp.class);
 
-                b.putExtra("Phonenum", Phonenum);
+                b.putExtra("phonenumber", Phonenumber);
                 startActivity(b);
                 finish();
             }

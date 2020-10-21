@@ -1,4 +1,4 @@
-package ph.ubx.xeatsv4;
+package ph.ubx.xeatsv4.Seller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,11 +20,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.hbb20.CountryCodePicker;
 
 import java.util.concurrent.TimeUnit;
 
-public class sellerSendOtp extends AppCompatActivity {
+import ph.ubx.xeatsv4.MainMenu;
+import ph.ubx.xeatsv4.R;
+import ph.ubx.xeatsv4.Utils.ReusableCodes;
+
+public class sellerVerifyPhone extends AppCompatActivity {
 
     String verificationId;
     FirebaseAuth FAuth;
@@ -36,14 +39,14 @@ public class sellerSendOtp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seller_send_otp);
+        setContentView(R.layout.activity_seller_verify_phone);
 
-        phonenum = getIntent().getStringExtra("Phonenum").trim();
+        phonenum = getIntent().getStringExtra("phonenumber").trim();
 
-        enterCode = (EditText)findViewById(R.id.otpField);
-        txt = (TextView)findViewById(R.id.textOtp);
-        resend = (Button)findViewById(R.id.resendOtpBtn);
-        verify = (Button)findViewById(R.id.verifyOtpBtn);
+        enterCode = (EditText)findViewById(R.id.phoneno);
+        txt = (TextView)findViewById(R.id.text);
+        resend = (Button)findViewById(R.id.resendBtn);
+        verify = (Button)findViewById(R.id.verifyBtn);
         FAuth = FirebaseAuth.getInstance();
 
         resend.setVisibility(View.INVISIBLE);
@@ -52,14 +55,15 @@ public class sellerSendOtp extends AppCompatActivity {
         sendVerificationCode(phonenum);
 
         verify.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
                 String code = enterCode.getText().toString().trim();
                 resend.setVisibility(View.INVISIBLE);
 
-                if (code.isEmpty() && code.length()<6){
-                    enterCode.setError("Enter code");
+                if (code.isEmpty() && code.length() <6 ) {
+                    enterCode.setError("Enter Code");
                     enterCode.requestFocus();
                     return;
                 }
@@ -67,18 +71,19 @@ public class sellerSendOtp extends AppCompatActivity {
             }
         });
 
-        new CountDownTimer(60000, 1000) {
+        new CountDownTimer(60000, 1000){
 
             @Override
             public void onTick(long l) {
 
                 txt.setVisibility(View.VISIBLE);
-                txt.setText("Resend Code Within "+l/1000+" Seconds");
+                txt.setText("Resend code within"+l/1000+"Seconds");
 
             }
 
             @Override
             public void onFinish() {
+
                 resend.setVisibility(View.VISIBLE);
                 txt.setVisibility(View.INVISIBLE);
 
@@ -86,41 +91,37 @@ public class sellerSendOtp extends AppCompatActivity {
         }.start();
 
         resend.setOnClickListener(new View.OnClickListener() {
-
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
 
                 resend.setVisibility(View.INVISIBLE);
-                Resendotp(phonenum);
+                ResendOtp(phonenum);
 
-                new CountDownTimer(60000, 1000) {
+                new CountDownTimer(60000,1000){
 
                     @Override
                     public void onTick(long l) {
 
                         txt.setVisibility(View.VISIBLE);
-                        txt.setText("Resend Code Within"+l/1000+"Seconds");
+                        txt.setText("Resend Code Within" +l/1000+ "Seconds");
 
                     }
 
-                    @Override
                     public void onFinish() {
-
                         resend.setVisibility(View.VISIBLE);
                         txt.setVisibility(View.INVISIBLE);
 
                     }
                 }.start();
-
             }
         });
+
     }
 
-    private void Resendotp(String phonenum) {
+    private void ResendOtp(String phonenum) {
 
         sendVerificationCode(phonenum);
     }
-
 
     private void sendVerificationCode(String number) {
 
@@ -150,7 +151,7 @@ public class sellerSendOtp extends AppCompatActivity {
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
 
-            Toast.makeText(sellerSendOtp.this, e.getMessage(),Toast.LENGTH_LONG).show();
+            Toast.makeText(sellerVerifyPhone.this, e.getMessage(),Toast.LENGTH_LONG).show();
 
         }
 
@@ -167,21 +168,23 @@ public class sellerSendOtp extends AppCompatActivity {
     private void verifyCode(String code) {
 
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
-        signInWithPhone(credential);
+        linkCredentials(credential);
 
     }
 
-    private void signInWithPhone(PhoneAuthCredential credentials) {
+    private void linkCredentials(PhoneAuthCredential credentials) {
 
-        FAuth.signInWithCredential(credentials)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        FAuth.getCurrentUser().linkWithCredential(credentials)
+                .addOnCompleteListener(sellerVerifyPhone.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
 
-                        if(task.isSuccessful()) {
-                            startActivity(new Intent(sellerSendOtp.this,sellerDashboard.class));
+                            Intent intent = new Intent(sellerVerifyPhone.this, MainMenu.class);
+                            startActivity(intent);
+                            finish();
                         } else {
-                            ReusableCodes.ShowAlert(sellerSendOtp.this, "Error",task.getException().getMessage());
+                            ReusableCodes.ShowAlert(sellerVerifyPhone.this, "Error",task.getException().getMessage());
                         }
                     }
                 });

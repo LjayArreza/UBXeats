@@ -1,13 +1,11 @@
-package ph.ubx.xeatsv4;
+package ph.ubx.xeatsv4.Customer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.arch.core.executor.TaskExecutor;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +23,11 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class sellerVerifyPhone extends AppCompatActivity {
+import ph.ubx.xeatsv4.MainMenu;
+import ph.ubx.xeatsv4.R;
+import ph.ubx.xeatsv4.Utils.ReusableCodes;
+
+public class customerVerifyPhone extends AppCompatActivity {
 
     String verificationId;
     FirebaseAuth FAuth;
@@ -37,14 +39,14 @@ public class sellerVerifyPhone extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seller_verify_phone);
+        setContentView(R.layout.activity_customer_verify_phone);
 
         phonenum = getIntent().getStringExtra("phonenumber").trim();
 
-        enterCode = (EditText)findViewById(R.id.phoneno);
-        txt = (TextView)findViewById(R.id.text);
-        resend = (Button)findViewById(R.id.resendBtn);
-        verify = (Button)findViewById(R.id.verifyBtn);
+        enterCode = (EditText)findViewById(R.id.customervpOtp);
+        txt = (TextView)findViewById(R.id.customervpText);
+        resend = (Button)findViewById(R.id.customervpResendBtn);
+        verify = (Button)findViewById(R.id.customervpBtn);
         FAuth = FirebaseAuth.getInstance();
 
         resend.setVisibility(View.INVISIBLE);
@@ -75,7 +77,7 @@ public class sellerVerifyPhone extends AppCompatActivity {
             public void onTick(long l) {
 
                 txt.setVisibility(View.VISIBLE);
-                txt.setText("Resend code within"+l/1000+"Seconds");
+                txt.setText("Resend code within" +l/1000+ "Seconds");
 
             }
 
@@ -113,7 +115,6 @@ public class sellerVerifyPhone extends AppCompatActivity {
                 }.start();
             }
         });
-
     }
 
     private void ResendOtp(String phonenum) {
@@ -149,7 +150,7 @@ public class sellerVerifyPhone extends AppCompatActivity {
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
 
-            Toast.makeText(sellerVerifyPhone.this, e.getMessage(),Toast.LENGTH_LONG).show();
+            Toast.makeText(customerVerifyPhone.this, e.getMessage(),Toast.LENGTH_LONG).show();
 
         }
 
@@ -173,16 +174,16 @@ public class sellerVerifyPhone extends AppCompatActivity {
     private void linkCredentials(PhoneAuthCredential credentials) {
 
         FAuth.getCurrentUser().linkWithCredential(credentials)
-                .addOnCompleteListener(sellerVerifyPhone.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(customerVerifyPhone.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
 
-                            Intent intent = new Intent(sellerVerifyPhone.this, MainMenu.class);
+                            Intent intent = new Intent(customerVerifyPhone.this, MainMenu.class);
                             startActivity(intent);
                             finish();
                         } else {
-                            ReusableCodes.ShowAlert(sellerVerifyPhone.this, "Error",task.getException().getMessage());
+                            ReusableCodes.ShowAlert(customerVerifyPhone.this, "Error",task.getException().getMessage());
                         }
                     }
                 });

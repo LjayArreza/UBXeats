@@ -10,7 +10,16 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import ph.ubx.xeatsv4.Customer.customerLoginEmail;
+import ph.ubx.xeatsv4.Customer.customerLoginPhone;
+import ph.ubx.xeatsv4.Customer.customerRegistration;
+import ph.ubx.xeatsv4.Delivery.deliveryLoginEmail;
+import ph.ubx.xeatsv4.Delivery.deliveryLoginPhone;
+import ph.ubx.xeatsv4.Delivery.deliveryRegistration;
+import ph.ubx.xeatsv4.Seller.sellerLoginEmail;
+import ph.ubx.xeatsv4.Seller.sellerLoginPhone;
+import ph.ubx.xeatsv4.Seller.sellerRegistration;
 
 public class ChooseOne extends AppCompatActivity {
 
@@ -79,19 +88,19 @@ public class ChooseOne extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(type.equals("Email")) {
-                    Intent sLoginemail = new Intent(ChooseOne.this,sellerLoginEmail.class);
+                    Intent sLoginemail = new Intent(ChooseOne.this, sellerLoginEmail.class);
                     startActivity(sLoginemail);
                     finish();
                 }
 
                 if(type.equals("Phone")) {
-                    Intent sLoginphone = new Intent(ChooseOne.this,sellerLoginPhone.class);
+                    Intent sLoginphone = new Intent(ChooseOne.this, sellerLoginPhone.class);
                     startActivity(sLoginphone);
                     finish();
                 }
 
                 if(type.equals("SignUp")) {
-                    Intent sRegister = new Intent(ChooseOne.this,sellerRegistration.class);
+                    Intent sRegister = new Intent(ChooseOne.this, sellerRegistration.class);
                     startActivity(sRegister);
                     finish();
                 }
@@ -102,19 +111,19 @@ public class ChooseOne extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(type.equals("Email")) {
-                    Intent cLoginemail = new Intent(ChooseOne.this,customerLoginEmail.class);
+                    Intent cLoginemail = new Intent(ChooseOne.this, customerLoginEmail.class);
                     startActivity(cLoginemail);
                     finish();
                 }
 
                 if(type.equals("Phone")) {
-                    Intent cLoginphone = new Intent(ChooseOne.this,customerLoginPhone.class);
+                    Intent cLoginphone = new Intent(ChooseOne.this, customerLoginPhone.class);
                     startActivity(cLoginphone);
                     finish();
                 }
 
                 if(type.equals("SignUp")) {
-                    Intent cRegister = new Intent(ChooseOne.this,customerRegistration.class);
+                    Intent cRegister = new Intent(ChooseOne.this, customerRegistration.class);
                     startActivity(cRegister);
                     finish();
                 }
@@ -125,19 +134,19 @@ public class ChooseOne extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(type.equals("Email")) {
-                    Intent dLoginemail = new Intent(ChooseOne.this,deliveryLoginEmail.class);
+                    Intent dLoginemail = new Intent(ChooseOne.this, deliveryLoginEmail.class);
                     startActivity(dLoginemail);
                     finish();
                 }
 
                 if(type.equals("Phone")) {
-                    Intent dLoginphone = new Intent(ChooseOne.this,deliveryLoginPhone.class);
+                    Intent dLoginphone = new Intent(ChooseOne.this, deliveryLoginPhone.class);
                     startActivity(dLoginphone);
                     finish();
                 }
 
                 if(type.equals("SignUp")) {
-                    Intent dRegister = new Intent(ChooseOne.this,deliveryRegistration.class);
+                    Intent dRegister = new Intent(ChooseOne.this, deliveryRegistration.class);
                     startActivity(dRegister);
                     finish();
                 }

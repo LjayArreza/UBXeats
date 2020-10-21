@@ -21,6 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import ph.ubx.xeatsv4.Customer.customerDashboard;
+import ph.ubx.xeatsv4.Seller.sellerDashboard;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView imageView;
@@ -63,8 +66,13 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 String role = snapshot.getValue(String.class);
-                                if(role.equals("Seller")) {
-                                    startActivity(new Intent(MainActivity.this,sellerDashboard.class));
+                                if(role.equals("Sellers")) {
+                                    startActivity(new Intent(MainActivity.this, sellerDashboard.class));
+                                    finish();
+                                }
+
+                                if(role.equals("Customers")) {
+                                    startActivity(new Intent(MainActivity.this, customerDashboard.class));
                                     finish();
                                 }
                             }

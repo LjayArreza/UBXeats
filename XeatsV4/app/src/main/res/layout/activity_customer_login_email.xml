@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/customerbg"
-    tools:context=".customerLoginEmail">
+    tools:context=".Customer.customerLoginEmail">
 
     <LinearLayout
         android:layout_width="280dp"
@@ -26,7 +26,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sellerLoginEmailC"
+            android:id="@+id/customerLoginEmail"
             android:layout_marginTop="15dp"
             android:paddingBottom="10dp">
 
@@ -43,7 +43,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sellerLoginPasswordC"
+            android:id="@+id/customerLoginPassword"
             android:layout_marginTop="5dp"
             android:paddingBottom="10dp">
 
@@ -60,7 +60,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/forgotPasswordSellerC"
+            android:id="@+id/customerLoginForgotPassword"
             android:gravity="end"
             android:textSize="16sp"
             android:text="Forgot Password?"
@@ -71,7 +71,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/sellerLoginBtnD"
+            android:id="@+id/customerLoginBtn"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_shape"
             android:text="Login"
@@ -81,7 +81,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textview6C"
+            android:id="@+id/customerLoginNewCustomerText"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:text="No Customer account? Click Here!"
@@ -145,7 +145,7 @@
         <Button
             android:layout_width="105dp"
             android:layout_height="40sp"
-            android:id="@+id/btnphoneC"
+            android:id="@+id/customerLoginPhoneSignIn"
             android:layout_gravity="center"
             android:text="Phone"
             android:background="@drawable/btnblueish"

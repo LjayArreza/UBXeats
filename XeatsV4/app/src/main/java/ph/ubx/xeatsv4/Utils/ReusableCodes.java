@@ -1,4 +1,4 @@
-package ph.ubx.xeatsv4;
+package ph.ubx.xeatsv4.Utils;
 
 import android.app.AlertDialog;
 import android.content.Context;

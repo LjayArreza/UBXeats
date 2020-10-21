@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".Seller.sellerSendOtp">
+    android:background="@drawable/customerbg"
+    tools:context=".Customer.customerVerifyPhone">
 
     <LinearLayout
         android:layout_width="280dp"
@@ -35,13 +35,13 @@
             android:layout_marginTop="15dp"
             android:hint="OTP"
             android:ems="10"
-            android:id="@+id/otpField"/>
+            android:id="@+id/customervpOtp"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:id="@+id/verifyOtpBtn"
+            android:id="@+id/customervpBtn"
             android:background="@drawable/btnorange"
             android:text="Verify"
             android:textSize="18sp"
@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:id="@+id/resendOtpBtn"
+            android:id="@+id/customervpResendBtn"
             android:background="@drawable/btnred"
             android:text="Resend Otp"
             android:textSize="18sp"
@@ -60,7 +60,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textOtp"
+            android:id="@+id/customervpText"
             android:layout_gravity="center"
             android:text=""
             android:textAlignment="center"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/customerbg"
-    tools:context=".customerRegistration">
+    tools:context=".Customer.customerRegistration">
 
     <ScrollView
         android:layout_width="280dp"
@@ -37,7 +37,7 @@
                 android:text="Customer Registration" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/FirstNamecR"
+                android:id="@+id/customerRegFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -51,7 +51,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/LastNamecR"
+                android:id="@+id/customerRegLastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
@@ -64,7 +64,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/EmailcR"
+                android:id="@+id/customerRegEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
@@ -77,7 +77,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/PasswordcR"
+                android:id="@+id/customerRegPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -91,7 +91,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/confirmPasswordcR"
+                android:id="@+id/customerRegConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -111,7 +111,7 @@
                 android:orientation="horizontal">
 
                 <com.hbb20.CountryCodePicker
-                    android:id="@+id/CountryCodecR"
+                    android:id="@+id/customerRegCountryCode"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="12dp"
@@ -121,7 +121,7 @@
                 </com.hbb20.CountryCodePicker>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/MobileNumcR"
+                    android:id="@+id/customerRegMobileNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -134,7 +134,7 @@
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/HouseNumcR"
+                android:id="@+id/customerRegHouseNumer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
@@ -146,7 +146,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/SubdcR"
+                android:id="@+id/customerRegSubd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
@@ -159,7 +159,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Spinner
-                android:id="@+id/ProvincecR"
+                android:id="@+id/customerRegProvince"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -168,7 +168,7 @@
                 android:textAlignment="viewStart" />
 
             <Spinner
-                android:id="@+id/CitycR"
+                android:id="@+id/customerRegCity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -177,7 +177,7 @@
                 android:textAlignment="viewStart" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/AreaCodecR"
+                android:id="@+id/customerRegZipCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
@@ -190,7 +190,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/sellerSignupBtncR"
+                android:id="@+id/customerRegSignUpButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
@@ -255,7 +255,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/signupEmailSellerBtncR"
+                    android:id="@+id/customerRegSignUpWithEmail"
                     android:layout_width="95dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
@@ -267,7 +267,7 @@
                     android:textColor="@color/white" />
 
                 <Button
-                    android:id="@+id/signupPhoneSellerBtncR"
+                    android:id="@+id/customerRegSignUpWithPhone"
                     android:layout_width="97dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="30dp"

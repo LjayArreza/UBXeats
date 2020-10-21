@@ -1,14 +1,16 @@
-package ph.ubx.xeatsv4;
+package ph.ubx.xeatsv4.Customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class deliveryRegistration extends AppCompatActivity {
+import ph.ubx.xeatsv4.R;
+
+public class customerDashboard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delivery_registration);
+        setContentView(R.layout.activity_customer_dashboard);
     }
 }

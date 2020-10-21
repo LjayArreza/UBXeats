@@ -1,4 +1,4 @@
-package ph.ubx.xeatsv4;
+package ph.ubx.xeatsv4.Seller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +18,9 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import ph.ubx.xeatsv4.R;
+import ph.ubx.xeatsv4.Utils.ReusableCodes;
+
 public class sellerLoginEmail extends AppCompatActivity {
 
     TextInputLayout email,pass;
@@ -31,7 +34,7 @@ public class sellerLoginEmail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_login_email);
 
-        try{
+        try {
 
             email = (TextInputLayout)findViewById(R.id.sellerLoginEmail);
             pass = (TextInputLayout)findViewById(R.id.sellerLoginPassword);
