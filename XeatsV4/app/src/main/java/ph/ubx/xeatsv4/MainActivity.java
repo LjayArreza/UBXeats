@@ -21,7 +21,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 import ph.ubx.xeatsv4.Customer.customerDashboard;
+import ph.ubx.xeatsv4.Delivery.deliveryDashboard;
 import ph.ubx.xeatsv4.Seller.sellerDashboard;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,10 +47,14 @@ public class MainActivity extends AppCompatActivity {
         textView.animate().alpha(0f).setDuration(0);
 
         imageView.animate().alpha(1f).setDuration(1000).setListener(new AnimatorListenerAdapter() {
+            /**
+             * {@inheritDoc}
+             *
+             * @param animation
+             */
             @Override
             public void onAnimationEnd(Animator animation) {
                 textView.animate().alpha(1f).setDuration(800);
-
 
             }
         });
@@ -61,18 +68,24 @@ public class MainActivity extends AppCompatActivity {
                     if(Fauth.getCurrentUser().isEmailVerified()) {
                         Fauth=FirebaseAuth.getInstance();
 
-                        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getUid()+"Role");
+                        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getUid()+"/Role");
                         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 String role = snapshot.getValue(String.class);
-                                if(role.equals("Sellers")) {
+
+                                if (role.equals("Sellers")) {
                                     startActivity(new Intent(MainActivity.this, sellerDashboard.class));
                                     finish();
                                 }
 
-                                if(role.equals("Customers")) {
+                                if (role.equals("Customers")) {
                                     startActivity(new Intent(MainActivity.this, customerDashboard.class));
+                                    finish();
+                                }
+
+                                if (role.equals("Delivery")) {
+                                    startActivity(new Intent(MainActivity.this, deliveryDashboard.class));
                                     finish();
                                 }
                             }

@@ -1,4 +1,4 @@
-package ph.ubx.xeatsv4.Customer;
+package ph.ubx.xeatsv4.Delivery;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,11 +23,12 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
+import ph.ubx.xeatsv4.Customer.customerVerifyPhone;
 import ph.ubx.xeatsv4.MainMenu;
 import ph.ubx.xeatsv4.R;
 import ph.ubx.xeatsv4.Utils.ReusableCodes;
 
-public class customerVerifyPhone extends AppCompatActivity {
+public class deliveryVerifyPhone extends AppCompatActivity {
 
     String verificationId;
     FirebaseAuth FAuth;
@@ -39,14 +40,14 @@ public class customerVerifyPhone extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_verify_phone);
+        setContentView(R.layout.activity_delivery_verify_phone);
 
         phonenum = getIntent().getStringExtra("phonenumber").trim();
 
-        enterCode = (EditText)findViewById(R.id.customervpOtp);
-        txt = (TextView)findViewById(R.id.customervpText);
-        resend = (Button)findViewById(R.id.customervpResendBtn);
-        verify = (Button)findViewById(R.id.customervpBtn);
+        enterCode = (EditText)findViewById(R.id.deliveryvpOtp);
+        txt = (TextView)findViewById(R.id.deliveryvpText);
+        resend = (Button)findViewById(R.id.deliveryvpResendBtn);
+        verify = (Button)findViewById(R.id.deliveryvpBtn);
         FAuth = FirebaseAuth.getInstance();
 
         resend.setVisibility(View.INVISIBLE);
@@ -150,7 +151,7 @@ public class customerVerifyPhone extends AppCompatActivity {
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
 
-            Toast.makeText(customerVerifyPhone.this, e.getMessage(),Toast.LENGTH_LONG).show();
+            Toast.makeText(deliveryVerifyPhone.this, e.getMessage(),Toast.LENGTH_LONG).show();
 
         }
 
@@ -174,16 +175,16 @@ public class customerVerifyPhone extends AppCompatActivity {
     private void linkCredentials(PhoneAuthCredential credentials) {
 
         FAuth.getCurrentUser().linkWithCredential(credentials)
-                .addOnCompleteListener(customerVerifyPhone.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(deliveryVerifyPhone.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
 
-                            Intent intent = new Intent(customerVerifyPhone.this, MainMenu.class);
+                            Intent intent = new Intent(deliveryVerifyPhone.this, MainMenu.class);
                             startActivity(intent);
                             finish();
                         } else {
-                            ReusableCodes.ShowAlert(customerVerifyPhone.this, "Error",task.getException().getMessage());
+                            ReusableCodes.ShowAlert(deliveryVerifyPhone.this, "Error",task.getException().getMessage());
                         }
                     }
                 });

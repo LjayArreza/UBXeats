@@ -42,13 +42,13 @@
             <com.hbb20.CountryCodePicker
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-                android:id="@+id/CountryCodeDP"
+                android:id="@+id/deliveryLpCcp"
                 app:ccp_defaultLanguage="ENGLISH"
                 app:ccp_defaultNameCode="PH"/>
             <EditText
                 android:layout_width="132dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/numberDP"
+                android:id="@+id/deliveryLpNumber"
                 android:layout_marginLeft="8dp"
                 android:inputType="number"/>
         </LinearLayout>
@@ -56,7 +56,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/sellerLoginBtnDP"
+            android:id="@+id/deliveryLpSendOtpBtn"
             android:layout_marginTop="25dp"
             android:background="@drawable/button_shape"
             android:text="Send OTP"
@@ -66,7 +66,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textview7DP"
+            android:id="@+id/deliveryLpSignUpText"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:text="Do you have an account? Sign Up"
@@ -130,7 +130,7 @@
         <Button
             android:layout_width="105dp"
             android:layout_height="40sp"
-            android:id="@+id/btnemailDP"
+            android:id="@+id/deliveryLpEmailBtn"
             android:layout_gravity="center"
             android:text="Email"
             android:background="@drawable/btnorange"

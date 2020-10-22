@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -24,7 +25,6 @@ import ph.ubx.xeatsv4.Seller.sellerRegistration;
 public class ChooseOne extends AppCompatActivity {
 
     Button sellerBtn,customerbtn,deliverybtn;
-    ImageView foodbgImage;
     Intent intent;
     String type;
     ConstraintLayout bgImage;
@@ -34,48 +34,20 @@ public class ChooseOne extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_one);
 
-        final Animation zoomin = AnimationUtils.loadAnimation(this,R.anim.zoomin);
-        final Animation zoomout = AnimationUtils.loadAnimation(this,R.anim.zoomout);
+        AnimationDrawable animationDrawable = new AnimationDrawable();
+        animationDrawable.addFrame(getResources().getDrawable(R.drawable.sellerbg), 3000);
+        animationDrawable.addFrame(getResources().getDrawable(R.drawable.customerbg), 3000);
+        animationDrawable.addFrame(getResources().getDrawable(R.drawable.deliverybg), 3000);
+        animationDrawable.addFrame(getResources().getDrawable(R.drawable.foodbg), 3000);
+        animationDrawable.addFrame(getResources().getDrawable(R.drawable.foodbg2), 3000);
 
-        foodbgImage=findViewById(R.id.back4);
-        foodbgImage.setAnimation(zoomin);
-        foodbgImage.setAnimation(zoomout);
+        animationDrawable.setOneShot(false);
+        animationDrawable.setEnterFadeDuration(850);
+        animationDrawable.setExitFadeDuration(1600);
 
-        zoomout.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                foodbgImage.startAnimation(zoomin);
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
-        zoomin.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                foodbgImage.startAnimation(zoomout);
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
+        bgImage = findViewById(R.id.back3);
+        bgImage.setBackground(animationDrawable);
+        animationDrawable.start();
 
         intent = getIntent();
         type = intent.getStringExtra("Home").toString().trim();

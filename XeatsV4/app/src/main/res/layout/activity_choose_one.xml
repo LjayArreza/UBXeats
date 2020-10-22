@@ -7,17 +7,6 @@
     android:layout_height="fill_parent"
     tools:context=".ChooseOne">
 
-    <ImageView
-        android:id="@+id/back4"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/foodbg2" />
-
     <LinearLayout
         android:id="@+id/linearlayout"
         android:layout_width="265dp"
