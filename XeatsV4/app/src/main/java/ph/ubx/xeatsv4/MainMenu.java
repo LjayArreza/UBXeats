@@ -4,21 +4,34 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainMenu extends AppCompatActivity {
 
     Button signinemail, signinphone, signup;
     ImageView bgimage;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        Log.d("ubxEats_Token","" + FirebaseInstanceId.getInstance().getToken());
+        FirebaseMessaging.getInstance().subscribeToTopic("allDevices");
+
+        //cTElzd1kTwmWhfNC6E39qn:APA91bEgjKH0e2BSzXMJFt_gZ-3c3OobKkDAkLVQ63sOjVLQOh2IkOIumD6Yyn5mQ-Dq6oorEqJYvmXlXF53zaP4u-BVtoMM7aKkoxABxWDPiJO0x0Ld9HhnyTMoMBWPj6k4VHeVm3sF
+
 
         final Animation zoomin = AnimationUtils.loadAnimation(this,R.anim.zoomin);
         final Animation zoomout = AnimationUtils.loadAnimation(this,R.anim.zoomout);
@@ -38,6 +51,7 @@ public class MainMenu extends AppCompatActivity {
                 bgimage.startAnimation(zoomin);
 
             }
+
 
             @Override
             public void onAnimationRepeat(Animation animation) {

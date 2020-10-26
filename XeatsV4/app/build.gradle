@@ -9,7 +9,7 @@ android {
         applicationId "ph.ubx.xeatsv4"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 7
+        versionCode 8
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
