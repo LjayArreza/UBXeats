@@ -250,6 +250,7 @@ public class seller_postdish extends AppCompatActivity {
 
         if(requestCode == CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             imageUri = CropImage.getPickImageResultUri(this,data);
+
             if(CropImage.isReadExternalStoragePermissionsRequired(this, imageUri)) {
                 mCropImageUri = imageUri;
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},0);

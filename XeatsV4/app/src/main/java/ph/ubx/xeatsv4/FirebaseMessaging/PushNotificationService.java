@@ -93,8 +93,3 @@ public class PushNotificationService extends FirebaseMessagingService {
 // create notification manages for displaying notification
 // create statement that if android version is greater than or equal to oreo the notification will be handled by the channel
 // sending notification via php file or sending notification to single device or topics
-
-
-
-
-

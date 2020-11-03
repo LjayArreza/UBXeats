@@ -3,6 +3,8 @@ package ph.ubx.xeatsv4.Customer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -24,6 +26,22 @@ public class customerDashboard extends AppCompatActivity implements BottomNaviga
         setContentView(R.layout.activity_customer_dashboard);
         BottomNavigationView navigationView = findViewById(R.id.customer_bottom_navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
+        String name = getIntent().getStringExtra("PAGE");
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if (name != null) {
+            if (name.equalsIgnoreCase("HomePage")) {
+                loadFragment(new CustomerHomeFragment());
+            } else if (name.equalsIgnoreCase("TrackingPage")) {
+                loadFragment(new CustomerTrackFragment());
+            } else if (name.equalsIgnoreCase("OrderPage")) {
+                loadFragment(new CustomerOrdersFragment());
+            } else if (name.equalsIgnoreCase("ThankYouPage")) {
+                loadFragment(new CustomerHomeFragment());
+            } else {
+                loadFragment(new CustomerHomeFragment());
+            }
+        }
     }
 
     @Override
@@ -71,5 +89,13 @@ public class customerDashboard extends AppCompatActivity implements BottomNaviga
         }
 
         return false;
+    }
+
+    private boolean loadFragment(Fragment fragment) {
+
+        if (fragment != null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.customer_fragment_container, fragment).commit();
+            return true;
+        } return false;
     }
 }

@@ -24,6 +24,20 @@ public class sellerDashboard extends AppCompatActivity  implements BottomNavigat
         setContentView(R.layout.activity_seller_dashboard);
         BottomNavigationView navigationView = findViewById(R.id.seller_bottom_navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
+        String name = getIntent().getStringExtra("PAGE");
+        if (name != null) {
+            if (name.equalsIgnoreCase("OrderPage")) {
+                loadSellerFragment(new sellerPendingOrdersFragment());
+            } else if (name.equalsIgnoreCase("ConfirmPage")) {
+                loadSellerFragment(new sellerOrderFragment());
+            } else if (name.equalsIgnoreCase("AcceptOrderPage")) {
+                loadSellerFragment(new sellerOrderFragment());
+            } else if (name.equalsIgnoreCase("DeliveredPage")) {
+                loadSellerFragment(new sellerOrderFragment());
+            }
+        } else {
+            loadSellerFragment(new sellerHomeFragment());
+        }
     }
 
     @Override

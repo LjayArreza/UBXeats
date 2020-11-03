@@ -14,6 +14,9 @@ import ph.ubx.xeatsv4.customerFoodPanelFragment.CustomerCartFragment;
 import ph.ubx.xeatsv4.customerFoodPanelFragment.CustomerHomeFragment;
 import ph.ubx.xeatsv4.deliveryFoodPanelFragment.DeliveryPendingFragment;
 import ph.ubx.xeatsv4.deliveryFoodPanelFragment.DeliveryShippedFragment;
+import ph.ubx.xeatsv4.sellerFoodPanelFragment.sellerHomeFragment;
+import ph.ubx.xeatsv4.sellerFoodPanelFragment.sellerOrderFragment;
+import ph.ubx.xeatsv4.sellerFoodPanelFragment.sellerPendingOrdersFragment;
 
 public class deliveryDashboard extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -21,9 +24,16 @@ public class deliveryDashboard extends AppCompatActivity implements BottomNaviga
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_dashboard);
-
         BottomNavigationView navigationView = findViewById(R.id.delivery_bottom_navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
+        String name = getIntent().getStringExtra("PAGE");
+        if (name != null) {
+            if(name.equalsIgnoreCase("OrderPage")) {
+                loadDeliveryFragment(new DeliveryPendingFragment());
+            }
+        } else {
+            loadDeliveryFragment(new DeliveryShippedFragment());
+        }
     }
 
     @Override
